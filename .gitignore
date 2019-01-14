@@ -1,0 +1,8 @@
+
+venv/
+
+\.DS_Store
+
+\.idea/
+
+TP5/ml-100k/
