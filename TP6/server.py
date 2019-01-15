@@ -15,9 +15,7 @@ import sys
 from threading import *
 
 SEND_TO = '192.168.1.178'
-SEND_TO_PORT1 = 5003
-SEND_TO_PORT2 = 5004
-SEND_TO_PORT3 = 5005
+
 width = 320
 height = 180
 
