@@ -42,6 +42,9 @@ b = np.load("b_value.npy")
 predict_gradient = np.dot(test_A,b)[:,0]
 predict_gradient_array = np.squeeze(np.asarray(predict_gradient[:,0]))
 # print(test_c)
+
+print("rmse for predictor basic")
+print(rmse(predictions, res))
 print("rmse for gradient descent")
 print(rmse(predict_gradient_array, test_c))
 # test = np.append(data_basic[indice[i][0], :], data_basic[:, indice[i][1]].T)
