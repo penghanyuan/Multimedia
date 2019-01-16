@@ -1,7 +1,10 @@
+from TP5.predi_random import *
+from TP5.predi_voisinage import *
 from TP5.tools import *
 from TP5.basique import *
 from TP5.line_analytique import *
 from TP5.gradient import *
+# form TP5.predi_random import *
 import time
 
 res_ori = readdata('./ml-100k/u.data',943,1682)
@@ -28,6 +31,7 @@ predictions = np.load("prediction_basic.npy")
 alpha = 0.00000003
 # gradient(alpha, 10000, res_ori, predictions, 100)
 
+test_random = creatPredictionsArray()
 
 test_mkc = make_c(res_ori, 120)
 test_A = make_A(np.array(test_mkc[0]),test_mkc[1],predictions)
@@ -37,14 +41,18 @@ test_c = np.array(test_c)
 test_A = np.matrix(test_A[1764:])
 
 
-print(test_c.size)
+print("Test size:",test_c.size)
 b = np.load("b_value.npy")
 predict_gradient = np.dot(test_A,b)[:,0]
 predict_gradient_array = np.squeeze(np.asarray(predict_gradient[:,0]))
 # print(test_c)
 
-print("rmse for predictor basic")
-print(rmse(predictions, res))
-print("rmse for gradient descent")
-print(rmse(predict_gradient_array, test_c))
+print("RMSE for predictor random", rmse(test_random, res))
+
+print("RMSE for predictor basic", rmse(predictions, res))
+
+print("RMSE for predictor voisinage", predi_voisinage_main())
+
+print("RMSE for gradient descent", rmse(predict_gradient_array, test_c))
+
 # test = np.append(data_basic[indice[i][0], :], data_basic[:, indice[i][1]].T)

@@ -23,8 +23,7 @@ len = nbuser*nbfilm
 
 def aler():
     scorealea=np.random.random()*5
-    # print(scorealea)
-    # print("scorealea :" + str(scorealea))
+
 
 # def creatTargetsArray(data,nbuser,nbfilm):
 #     res=numpy.ones((nbuser, nbfilm))
@@ -36,12 +35,10 @@ def aler():
 
 def creatPredictionsArray():
     res = np.random.randint(1,5,size=[nbuser,nbfilm])
-    print("Matrice de notes aléatoires:",res)
+    # print("Matrice de notes aléatoires:",res)
     return res
 
 def rmse(predictions, targets):
-    print("Prédicteur_1_RMSE:",np.sqrt(np.mean((predictions - targets) ** 2)))
+    return np.sqrt(np.mean((predictions - targets) ** 2))
 
 
-
-rmse(creatPredictionsArray(), readdata('./ml-100k/u.data',943,1682))
